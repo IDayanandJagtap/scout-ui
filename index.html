@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" /> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Scout</title>
+
+    <style>
+        * {
+            transition: all 0.3s linear;
+        }
+
+        .response-link {
+            border: .5px solid #777;
+            padding: 5px;
+            margin-top: 10px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="my-4 text-center">
+        <h1 class="text-5xl font-bold mb-2 ">SCOUT</h1>
+        <p class="text-sm text-gray-700">Search for MSDS by using either chemical name or CAS number.</p>
+    </div>
+
+    <div class="w-full h-screen flex justify-center p-5 mt-10 gap-8">
+        <!-- Form and response section -->
+        <section class="w-2/5 flex flex-col">
+            <!-- Form -->
+            <form class=" mx-auto w-full bg-blue-300 border border-blue-500 p-8 rounded-md shadow-slate-900"
+                onsubmit="handleOnFormSubmit(event)">
+                <h1 class="text-2xl text-center font-bold mb-5 ">Scout search</h1>
+                <div class="mb-5">
+                    <label for="chemicalName" class="block mb-2 text-sm font-medium text-gray-900 ">Chemical
+                        name
+                    </label>
+                    <input type="text" id="chemicalName"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:border-blue-500 block w-full p-2.5"
+                        placeholder="Methanol" />
+                </div>
+                <div class="mb-5">
+                    <label for="casNumber" class="block mb-2 text-sm font-medium text-gray-900">Cas
+                        number
+                    </label>
+                    <input type="text" id="casNumber"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:border-blue-500 block w-full p-2.5 "
+                        placeholder="106-38-7" />
+                </div>
+
+
+                <div class="flex justify-end">
+                    <button type="submit" id="searchBtn"
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Search
+                    </button>
+                </div>
+
+
+            </form>
+
+            <!-- Response -->
+            <section class="w-full mt-10 px-2 py-5 bg-red-200 border border-red-500 rounded-md">
+                <h1 class="text-xl text-center font-bold">Searched results</h1>
+
+                <!-- Show while search is going on -->
+                <p class="text-center my-4" id="searchingState">Please search something !</p>
+
+                <!-- Show verified results -->
+                <div id="verifiedResults"
+                    class="p-2 border-slate-900 mt-4 flex flex-col justify-stretch cursor-pointer">
+
+                </div>
+
+                <!-- Show suggestions (unverfied) -->
+                <div id="unverifiedResults"
+                    class="p-2 border-slate-900 mt-4 flex flex-col justify-stretch cursor-pointer">
+                </div>
+
+
+            </section>
+
+
+        </section>
+
+        <!-- PDF Viewer section -->
+        <section class="sm:w-0  lg:w-3/5 h-full hidden" id="viewPdfContainer">
+            <!-- <h1 class=" text-center font-bold mb-5 ">View PDF</h1> -->
+            <iframe id="pdfFrame" src="./demo.pdf" frameborder="1" width="100%" class="h-full rounded-md"></iframe>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
