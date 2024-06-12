@@ -6,13 +6,10 @@ const searchingState = document.getElementById("searchingState");
 const pdfContainer = document.getElementById("viewPdfContainer");
 const pdfFrame = document.getElementById("pdfFrame");
 const searchBtn = document.getElementById("searchBtn");
-// API URL
-// replit
-// const BASE_API_URL =
-//     "https://41b801c7-a24d-493f-9e3f-154c2cfb6834-00-2663dwmzrq21o.pike.replit.dev:8000/";
 
-//azure
+// API (azure) URL
 const BASE_API_URL = "https://scout-api.azurewebsites.net/";
+
 // Display the search results
 const displayResults = (results) => {
     // Insert verified in verified container and unverified into unverified container
@@ -23,7 +20,7 @@ const displayResults = (results) => {
     results.forEach((result) => {
         // Extract filename and create a href link
         const filename = result.filepath.split("/").pop();
-        const pdfUrl = BASE_API_URL + result.filepath;
+        const pdfUrl = BASE_API_URL + result.filepath; // construct a pdf url
 
         // Create a link
         const a = document.createElement("a");
@@ -55,6 +52,7 @@ const displayResults = (results) => {
 // Make an API_CALL and return the results
 const searchMsds = async (query) => {
     try {
+        // urlStructure = `https://scout-api.azurewebsites.net/scout/query`
         let response = await fetch(`${BASE_API_URL}scout/${query}`);
         return await response.json();
     } catch (err) {
@@ -99,8 +97,10 @@ const handleOnFormSubmit = async (e) => {
     const result = await searchMsds(valueToSearch);
 
     // Check for errors
-    if (result?.error) {
+    if (result.error) {
         searchingState.textContent = "Something went wrong 😔";
+        searchBtn.textContent = "Search";
+        searchBtn.disabled = false;
         return;
     }
 
@@ -130,22 +130,49 @@ const openPdfOnLinkClick = (e) => {
     pdfContainer.classList.remove("hidden");
 };
 
-// Demo response :
-// [
-//     {
-//       cas: '106-38-7',
-//       name: null,
-//       provider: 'www.cdhfinechemical.com',
-//       verified: true,
-//       filepath: './verified/106-38-7_www.cdhfinechemical.com_1.pdf',
-//       url: 'https://www.cdhfinechemical.com/images/product/msds/37_1169066209_4-BromoToluene-CASNO-106-38-7-MSDS.pdf'
-//     },
-//     {
-//       cas: '106-38-7',
-//       name: null,
-//       provider: 'www.fishersci.com',
-//       verified: true,
-//       filepath: './verified/106-38-7_www.fishersci.com_1.pdf',
-//       url: 'https://www.fishersci.com/store/msds?partNumber=AC107481000&productDescription=4-BROMOTOLUENE+99%25+100ML&vendorId=VN00032119&countryCode=US&language=en'
-//     }
-//   ]
+// Demo response (from scout api) :
+/* 
+[
+    {
+        "cas": null,
+        "name": "methanol",
+        "provider": "beta-static.fishersci.com",
+        "verified": true,
+        "filepath": "verified/methanol_beta-static.fishersci.com_3.pdf",
+        "url": "https://beta-static.fishersci.com/content/dam/fishersci/en_US/documents/programs/education/regulatory-documents/sds/chemicals/chemicals-m/S25426A.pdf"
+    },
+    {
+        "cas": null,
+        "name": "methanol",
+        "provider": "www.airgas.com",
+        "verified": true,
+        "filepath": "verified/methanol_www.airgas.com_3.pdf",
+        "url": "https://www.airgas.com/msds/001065.pdf"
+    },
+    {
+        "cas": null,
+        "name": "methanol",
+        "provider": "sds.chemtel.net",
+        "verified": true,
+        "filepath": "verified/methanol_sds.chemtel.net_3.pdf",
+        "url": "https://sds.chemtel.net/webclients/safariland/finished_goods/Pioneer%20Forensics%20-%20PF032%20-%20PF033%20-%20PF034%20-%20Methanol.pdf"
+    },
+    {
+        "cas": null,
+        "name": "methanol",
+        "provider": "www.carlroth.com",
+        "verified": true,
+        "filepath": "verified/methanol_www.carlroth.com_3.pdf",
+        "url": "https://www.carlroth.com/medias/SDB-1A9L-IE-EN.pdf?context=bWFzdGVyfHNlY3VyaXR5RGF0YXNoZWV0c3wzNzA2MDR8YXBwbGljYXRpb24vcGRmfHNlY3VyaXR5RGF0YXNoZWV0cy9oYWEvaDkyLzkxMTcxNDE0NjcxNjYucGRmfDQ1MTM2MGRiZTczOGE1ZjQ4N2MxN2EwZmQ0YjMwZWU3MTQ2YTczYWZkODlkZTdmYmFjZGE5YWZhMTkyMTE5ZmY"
+    },
+    {
+        "cas": null,
+        "name": "methanol",
+        "provider": "www.chemos.de",
+        "verified": true,
+        "filepath": "verified/methanol_www.chemos.de_3.pdf",
+        "url": "https://www.chemos.de/import/data/msds/GB_en/67-56-1-A0287913-GB-en.pdf"
+    }
+]
+
+*/

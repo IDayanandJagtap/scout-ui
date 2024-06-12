@@ -26,7 +26,7 @@
 
     <div class="my-4 text-center">
         <h1 class="text-5xl font-bold mb-2 ">SCOUT</h1>
-        <p class="text-sm text-gray-700">Search for MSDS by using either chemical name or CAS number.</p>
+        <p class="text-sm text-gray-700">Search for MSDS by using either chemical/material name or CAS number.</p>
     </div>
 
     <div class="w-full h-screen flex justify-center p-5 mt-10 gap-8">
@@ -37,16 +37,16 @@
                 onsubmit="handleOnFormSubmit(event)">
                 <h1 class="text-2xl text-center font-bold mb-5 ">Scout search</h1>
                 <div class="mb-5">
-                    <label for="chemicalName" class="block mb-2 text-sm font-medium text-gray-900 ">Chemical
-                        name
+                    <label for="chemicalName" class="block mb-2 text-sm font-medium text-gray-900 ">Chemical/Material
+                        name :
                     </label>
                     <input type="text" id="chemicalName"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:border-blue-500 block w-full p-2.5"
                         placeholder="Methanol" />
                 </div>
                 <div class="mb-5">
-                    <label for="casNumber" class="block mb-2 text-sm font-medium text-gray-900">Cas
-                        number
+                    <label for="casNumber" class="block mb-2 text-sm font-medium text-gray-900">CAS
+                        number :
                     </label>
                     <input type="text" id="casNumber"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg outline-none focus:border-blue-500 block w-full p-2.5 "
@@ -66,7 +66,7 @@
 
             <!-- Response -->
             <section class="w-full mt-10 px-2 py-5 bg-red-200 border border-red-500 rounded-md">
-                <h1 class="text-xl text-center font-bold">Searched results</h1>
+                <h1 class="text-xl text-center font-bold">Search results</h1>
 
                 <!-- Show while search is going on -->
                 <p class="text-center my-4" id="searchingState">Please search something !</p>
