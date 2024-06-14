@@ -7,6 +7,9 @@ const pdfContainer = document.getElementById("viewPdfContainer");
 const pdfFrame = document.getElementById("pdfFrame");
 const searchBtn = document.getElementById("searchBtn");
 
+// In mobile devices :
+const isMobileUser = window.innerWidth < 768;
+
 // API (azure) URL
 const BASE_API_URL = "https://scout-api.azurewebsites.net/";
 
@@ -119,15 +122,20 @@ const handleOnFormSubmit = async (e) => {
 };
 
 // Handle pdf opening :
-
 const openPdfOnLinkClick = (e) => {
     e.preventDefault();
     // Get the pdfURl and provide it to pdf frame.
     const pdfUrl = e.target.getAttribute("href");
-    pdfFrame.src = pdfUrl;
 
-    // Display the pdf viewer
-    pdfContainer.classList.remove("hidden");
+    // Download the pdf for mobile users
+    if (isMobileUser) {
+        window.open(pdfUrl, "_blank");
+    } else {
+        // Show preview of pdf
+        pdfFrame.src = pdfUrl;
+        // Display the pdf viewer
+        pdfContainer.classList.remove("hidden");
+    }
 };
 
 // Demo response (from scout api) :
