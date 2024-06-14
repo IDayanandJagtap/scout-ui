@@ -174,38 +174,6 @@ const scrollToBottom = () => {
         "filepath": "verified/methanol_beta-static.fishersci.com_3.pdf",
         "url": "https://beta-static.fishersci.com/content/dam/fishersci/en_US/documents/programs/education/regulatory-documents/sds/chemicals/chemicals-m/S25426A.pdf"
     },
-    {
-        "cas": null,
-        "name": "methanol",
-        "provider": "www.airgas.com",
-        "verified": true,
-        "filepath": "verified/methanol_www.airgas.com_3.pdf",
-        "url": "https://www.airgas.com/msds/001065.pdf"
-    },
-    {
-        "cas": null,
-        "name": "methanol",
-        "provider": "sds.chemtel.net",
-        "verified": true,
-        "filepath": "verified/methanol_sds.chemtel.net_3.pdf",
-        "url": "https://sds.chemtel.net/webclients/safariland/finished_goods/Pioneer%20Forensics%20-%20PF032%20-%20PF033%20-%20PF034%20-%20Methanol.pdf"
-    },
-    {
-        "cas": null,
-        "name": "methanol",
-        "provider": "www.carlroth.com",
-        "verified": true,
-        "filepath": "verified/methanol_www.carlroth.com_3.pdf",
-        "url": "https://www.carlroth.com/medias/SDB-1A9L-IE-EN.pdf?context=bWFzdGVyfHNlY3VyaXR5RGF0YXNoZWV0c3wzNzA2MDR8YXBwbGljYXRpb24vcGRmfHNlY3VyaXR5RGF0YXNoZWV0cy9oYWEvaDkyLzkxMTcxNDE0NjcxNjYucGRmfDQ1MTM2MGRiZTczOGE1ZjQ4N2MxN2EwZmQ0YjMwZWU3MTQ2YTczYWZkODlkZTdmYmFjZGE5YWZhMTkyMTE5ZmY"
-    },
-    {
-        "cas": null,
-        "name": "methanol",
-        "provider": "www.chemos.de",
-        "verified": true,
-        "filepath": "verified/methanol_www.chemos.de_3.pdf",
-        "url": "https://www.chemos.de/import/data/msds/GB_en/67-56-1-A0287913-GB-en.pdf"
-    }
 ]
 
 */
