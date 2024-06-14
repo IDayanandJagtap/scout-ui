@@ -119,6 +119,9 @@ const handleOnFormSubmit = async (e) => {
     // Re-enable button
     searchBtn.textContent = "Search";
     searchBtn.disabled = false;
+
+    // scroll to bottom
+    scrollToBottom();
 };
 
 // Handle pdf opening :
@@ -135,7 +138,29 @@ const openPdfOnLinkClick = (e) => {
         pdfFrame.src = pdfUrl;
         // Display the pdf viewer
         pdfContainer.classList.remove("hidden");
+        // scroll to top
+        scrollToTop();
     }
+};
+
+// Handle pdf closing
+const closePdfViewer = () => {
+    pdfContainer.classList.add("hidden");
+    pdfFrame.src = "";
+};
+
+// Handle scrolling to top
+const scrollToTop = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+};
+
+// handle scrolling to bottom
+const scrollToBottom = () => {
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth",
+    });
 };
 
 // Demo response (from scout api) :

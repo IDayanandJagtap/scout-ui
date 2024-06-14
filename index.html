@@ -11,6 +11,7 @@
     <style>
         * {
             transition: all 0.3s linear;
+            scroll-behavior: smooth;
         }
 
         .response-link {
@@ -25,13 +26,13 @@
 <body>
 
     <div class="my-4 text-center p-4 lg:p-0">
-        <h1 class="text-5xl font-bold mb-2 ">SCOUT</h1>
+        <h1 class="text-5xl font-bold mb-4">SCOUT</h1>
         <p class="text-sm text-gray-700">Search for MSDS by using either chemical/material name or CAS number.</p>
     </div>
 
-    <div class="w-full flex justify-center p-5 mt-10 gap-8">
+    <div class="w-full flex justify-center p-5 mt-4 gap-8 lg:mt-10 ">
         <!-- Form and response section -->
-        <section class="w-full lg:w-2/5 flex flex-col justify-center">
+        <section class="w-full lg:w-2/5 flex flex-col justify-center lg:justify-start">
             <!-- Form -->
             <form class=" mx-auto w-full bg-blue-300 border border-blue-500 p-8 rounded-md shadow-slate-900"
                 onsubmit="handleOnFormSubmit(event)">
@@ -73,13 +74,13 @@
 
                 <!-- Show verified results -->
                 <div id="verifiedResults"
-                    class="p-2 border-slate-900 mt-4 flex flex-col justify-stretch cursor-pointer">
+                    class="p-2 border-slate-900 mt-4 flex flex-col justify-stretch cursor-pointer text-xs lg:text-base">
 
                 </div>
 
                 <!-- Show suggestions (unverfied) -->
                 <div id="unverifiedResults"
-                    class="p-2 border-slate-900 mt-4 flex flex-col justify-stretch cursor-pointer">
+                    class="p-2 border-slate-900 mt-4 flex flex-col justify-stretch cursor-pointer text-xs lg:text-base">
                 </div>
 
 
@@ -89,9 +90,23 @@
         </section>
 
         <!-- PDF Viewer section -->
-        <section class="w-0 lg:w-3/5 h-[100vh] hidden" id="viewPdfContainer">
-            <!-- <h1 class=" text-center font-bold mb-5 ">View PDF</h1> -->
-            <iframe id="pdfFrame" src="" frameborder="1" width="100%" class="h-full rounded-md"></iframe>
+        <section class="w-0 lg:w-3/5 h-fit-content hidden rounded-lg " id="viewPdfContainer">
+            <!-- <h1 class=" text-center font-bold text-2xl my-2">Preview </h1> -->
+
+            <!-- PDF FRAME -->
+            <iframe id="pdfFrame" src="" frameborder="1" width="100%" class="h-[100vh] rounded-md"></iframe>
+
+            <!-- BUTTONS -->
+            <div class="flex justify-end items-center p-2">
+                <div>
+                    <button
+                        class="py-2 px-4 mx-2 border border-red-500 bg-red-500 text-white rounded-lg hover:bg-red-600"
+                        onclick="closePdfViewer()">Close</button>
+                    <button id="addToBuilderBtn" disabled=true
+                        class="py-2 px-4 border border-blue-500 bg-blue-500 text-white rounded-lg cursor-not-allowed">Add</button>
+                </div>
+
+            </div>
         </section>
     </div>
 
