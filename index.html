@@ -36,7 +36,9 @@
     </header>
 
     <div class="mt-8 mb-2 text-center p-4 lg:p-0">
-        <p class="text-sm text-gray-700">Search for MSDS by using chemical/material name or CAS number.</p>
+        <p class="text-sm text-gray-700">
+            Search for Material Safety Data Sheets (MSDS) by using the Chemical/Material Name or CAS number.
+        </p>
     </div>
 
     <div class="w-full flex justify-center p-5 gap-8">
@@ -64,7 +66,7 @@
                         class="peer placeholder-transparent bg-white border-2 rounded-md w-full p-3 outline-none focus:border-[#149877]" />
                     <label id="casNumber"
                         class="px-1.5 bg-white text-slate-500 text-xs absolute left-3 -top-[0.01rem] transform -translate-y-1/2 transition-all duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-xs peer-focus:-top-[0.01rem] peer-focus:text-[#149877] peer-focus:text-xs">
-                        Cas Number
+                        CAS Number
                     </label>
                 </div>
 
@@ -86,7 +88,7 @@
                 <hr>
 
                 <!-- Show while search is going on -->
-                <p class="text-center text-sm my-4" id="searchingState">Please search something!</p>
+                <p class="text-center text-slate-500 text-sm my-4" id="searchingState">Please enter a search query</p>
 
                 <!-- Show verified results -->
                 <div id="verifiedResults"

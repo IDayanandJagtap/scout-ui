@@ -85,7 +85,7 @@ const handleOnFormSubmit = async (e) => {
 
     if (chemicalName === "" && casNumber === "") {
         searchingState.textContent =
-            "Please enter either chemical name or cas number";
+            "Please enter either the Chemical Name or CAS number";
         searchBtn.textContent = "Search";
         searchBtn.disabled = false;
         return;
