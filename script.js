@@ -11,7 +11,8 @@ const searchBtn = document.getElementById("searchBtn");
 const isMobileUser = window.innerWidth < 768;
 
 // API (azure) URL
-const BASE_API_URL = "https://scout-api.azurewebsites.net/";
+// const BASE_API_URL = "https://scout-api.azurewebsites.net/";
+const BASE_API_URL = "https://viridium-scout.azurewebsites.net/";
 
 // Display the search results
 const displayResults = (results) => {
@@ -29,7 +30,7 @@ const displayResults = (results) => {
         const a = document.createElement("a");
         a.className = "response-link";
         a.href = pdfUrl;
-        a.textContent = "⚪  " + filename;
+        a.textContent = "🔗  " + filename;
         a.addEventListener("click", openPdfOnLinkClick);
 
         // Add into respective container
@@ -40,7 +41,7 @@ const displayResults = (results) => {
             // Check if it has a heading already, if not then add heading first !
             if (!unverifiedResultContainer.hasChildNodes()) {
                 const h1 = document.createElement("h1");
-                h1.className = "text-lg font-bold";
+                h1.className = "text-lg font-semibold";
                 h1.textContent = "Suggestions";
                 unverifiedResultContainer.append(h1);
             }
